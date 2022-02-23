@@ -40,7 +40,8 @@ let [따봉, 따봉변경] = useState(new Array(글제목.length).fill(0));
 let [비추, 비추변경] = useState();
 let [number, setNumber] = useState();
  //let [modal1, modal변경] = useRecoilState(모달변경1);
-let [modal, modal변경] = useState(false);
+  let [modal, modal변경] = useState(false);
+  let [입력값, 입력값변경] = useState("");
   
  
 
@@ -71,10 +72,10 @@ let [modal, modal변경] = useState(false);
         글제목.map((글,숫자) => {
         
           return (
-            <div className="list">
+            <div className="list" key={숫자}>
               <h3 onClick={() => { setNumber(숫자) }}> {글} <span onClick={() => {
                 let newArr = [...따봉];
-                newArr[숫자] += 2;
+                newArr[숫자] += 1;
                 따봉변경(newArr);
               }}> 👍🏻 </span>{따봉[숫자]}</h3>
               <p>2월 17일 발행</p>
@@ -82,7 +83,24 @@ let [modal, modal변경] = useState(false);
             </div>
           );  
       })
-    }
+      }
+      
+
+      {/* Input 들어온 data를 어떻게 다룰 것인가? */}
+      {/* { 입력값 } */}
+      {/* <input onChange={(e) => {입력값변경(e.target.value)}} /> */}
+
+      <div className="publish">
+        <input onChange={(e) => {입력값변경(e.target.value)}} />
+        <button onClick={() => {
+          let 글제목Arr = [...글제목];
+          글제목Arr.unshift(입력값);  //배열의 맨앞에(왼쪽) 공간을 만들고 인자값으로 채워주라!
+          글제목변경(글제목Arr);
+          let 따봉Arr = [...따봉,0];
+          따봉변경(따봉Arr);
+        }}>저장</button>
+
+      </div>
     
       <button onClick={()=>{ if(!modal)modal변경(true)
            if(modal)modal변경(false)}}>열고닫기</button>

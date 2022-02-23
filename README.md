@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### useState 상태값 변환 
+ 💢 useState에서 값을 변환할 때 직접적으로 값을 변환시켜주는 행위 (const [a, setA] = useState([0]), a[0]=1) 이런행위는 나쁜습관이다.
+   항상 사본을 만들어주고난 다음 사본을 수정한 후에 setA(수정값) 함수를 이용해서 값을 변환할 수 있도록 기억합시다!    
