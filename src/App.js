@@ -74,7 +74,7 @@ let [modal, modal변경] = useState(false);
             <div className="list">
               <h3 onClick={() => { setNumber(숫자) }}> {글} <span onClick={() => {
                 let newArr = [...따봉];
-                newArr[숫자] += 1;
+                newArr[숫자] += 2;
                 따봉변경(newArr);
               }}> 👍🏻 </span>{따봉[숫자]}</h3>
               <p>2월 17일 발행</p>
