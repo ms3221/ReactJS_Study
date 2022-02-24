@@ -85,6 +85,7 @@ let [number, setNumber] = useState();
       })
       }
       
+      <Profile></Profile>
 
       {/* Input 들어온 data를 어떻게 다룰 것인가? */}
       {/* { 입력값 } */}
@@ -124,5 +125,29 @@ function Modal(props) {
 
   )
 }
+
+class Profile extends React.Component {
+  constructor() {
+    super();
+    this.state = {name : 'kim', age : 30}
+  }
+
+  //class문법안에서 함수를 만드는 방법 
+  changeName() {
+    console.log(1);
+    this.setState({name : "dfsdf"})
+  }
+
+  render() {
+    return (
+      <div>
+        <h3> 프로필입니다.</h3>
+        <p>저는 {this.state.name} 입니다.</p>
+        <button onClick={ this.changeName.bind(this)}>버튼</button>
+      </div>
+    )
+  }
+}
+
 
 export default App;
